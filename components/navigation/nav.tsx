@@ -1,5 +1,4 @@
 import React from "react";
-// import NavItems from './nav-items';
 import Link from "next/link";
 import classNames from "classnames";
 import { NavigationData } from "@/types/nav";
