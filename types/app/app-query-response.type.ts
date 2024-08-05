@@ -1,8 +1,31 @@
-import { EntryFields, EntrySys } from "contentful";
+import { SEOMetadata } from "../page.type";
 
 export interface AppQueryResponse {
-  sys: EntrySys;
-  header: { sys: EntrySys; __typename: EntryFields.Symbol };
-  homePage: { sys: EntrySys; __typename: EntryFields.Symbol };
-  footer: { sys: EntrySys; __typename: EntryFields.Symbol };
+  data: {
+    appCollection: {
+      items: {
+        seoMetadata: SEOMetadata;
+        sys: {
+          id: string;
+        };
+        header: {
+          sys: {
+            id: string;
+          };
+          __typename: string;
+        };
+        footer: {
+          sys: {
+            id: string;
+          };
+          __typename: string;
+        };
+        homePage: {
+          sys: {
+            id: string;
+          };
+        };
+      }[];
+    };
+  };
 }

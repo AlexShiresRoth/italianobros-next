@@ -22,16 +22,23 @@ export interface NavigationData {
           sys: {
             id: string;
           };
+          __typename: string;
           groupName: string;
           groupLink: {
             __typename: string;
             pageName: string;
             slug: string;
+            sys: {
+              id: string;
+            };
           };
           featuredPagesCollection: {
             items: {
               slug: string;
               pageName: string;
+              sys: {
+                id: string;
+              };
             }[];
           };
         }[];
