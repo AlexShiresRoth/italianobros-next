@@ -1,5 +1,5 @@
 export interface ComponentHeroBannerType {
-  __typename: 'ComponentHeroBanner';
+  __typename: "ComponentHeroBanner";
   sys: {
     id: string;
   };
@@ -11,11 +11,18 @@ export interface ComponentHeroBannerType {
     title: string;
     description: string;
   };
+  imagesCollection: {
+    items: {
+      url: string;
+      title: string;
+      description: string;
+    }[];
+  };
   targetPage: {
     sys: {
       id: string;
     };
-    __typename: 'Page';
+    __typename: "Page";
     slug: string;
   };
   bodyText: {

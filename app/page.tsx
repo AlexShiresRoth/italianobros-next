@@ -7,7 +7,6 @@ import { getAppData } from "@/contentful/gql-queries";
 import { pageQuery } from "@/contentful/gql-queries/components/page/page.query";
 import { PageCollectionResponseData } from "@/types/page.type";
 import { Metadata, ResolvingMetadata } from "next";
-import { Suspense } from "react";
 
 type Props = {
   params: { slug: string };
@@ -60,9 +59,8 @@ export default async function Home() {
 
   return (
     <>
-      <Suspense>
-        <Header data={app.header} slug='home' />
-      </Suspense>
+      <Header data={app.header} slug='home' />
+
       <MainContainer>
         {/* TOP Section */}
         <>

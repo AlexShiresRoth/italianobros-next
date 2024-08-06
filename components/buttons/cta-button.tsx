@@ -1,5 +1,4 @@
-import Link from 'next/link';
-import React from 'react';
+import Link from "next/link";
 
 type Props = {
   text: string;
@@ -9,14 +8,14 @@ type Props = {
 };
 
 const LinkClassNames =
-  'px-4 py-2 rounded border border-black hover:bg-black hover:text-white transition-colors dark:border-white dark:hover:bg-white dark:text-white dark:hover:text-black';
+  "px-4 py-2 rounded border border-black hover:bg-black hover:text-white transition-colors dark:border-white dark:hover:bg-white dark:text-white dark:hover:text-black";
 const altLinkClassNames =
-  'px-4 py-2 rounded border border-black bg-black text-white hover:bg-white hover:text-black dark:bg-indigo-500 dark:text-black transition-colors dark:hover:bg-indigo-800';
+  "px-4 py-4 border-2 uppercase font-sans font-semibold border-primary bg-transparent text-white hover:bg-primary hover:text-white dark:bg-transparent dark:text-white transition-colors dark:hover:bg-primary ";
 
 const CtaButton = ({ text, slug, altButton = false }: Props) => {
   return (
     <Link
-      href={slug ?? '/'}
+      href={slug ?? "/"}
       className={altButton ? altLinkClassNames : LinkClassNames}
     >
       {text}
@@ -28,8 +27,7 @@ export const ExternalCTAButton = ({ text, url, altButton = false }: Props) => {
   return (
     <a href={url} className={altButton ? altLinkClassNames : LinkClassNames}>
       {text}
-      {` `}
-      <i className="ri-external-link-line"></i>
+      <i className='ri-external-link-line'></i>
     </a>
   );
 };

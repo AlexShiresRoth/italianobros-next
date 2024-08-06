@@ -1,6 +1,6 @@
 import { getAppData } from "@/contentful/gql-queries";
 import { Metadata } from "next";
-import { Cormorant_Garamond } from "next/font/google";
+import { Cormorant_Garamond, Inter } from "next/font/google";
 import "./globals.css";
 
 const garamond = Cormorant_Garamond({
@@ -8,6 +8,8 @@ const garamond = Cormorant_Garamond({
   variable: "--font-garamond",
   weight: ["300", "400", "500", "600", "700"],
 });
+
+const inter = Inter({ subsets: ["latin"], weight: ["300", "400", "500"] });
 
 type Props = {
   children: React.ReactNode;
@@ -41,7 +43,7 @@ export default async function RootLayout({ children }: Props) {
 
   return (
     <>
-      <html lang='en' className={`${garamond.className}`}>
+      <html lang='en' className={`${inter.className} ${garamond.className}`}>
         <body>
           <>{children}</>
         </body>
