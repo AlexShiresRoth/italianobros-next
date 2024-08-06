@@ -4,6 +4,7 @@ import { FeaturedSectionResponseData } from "@/types";
 import { PossibleComponentType } from "@/types/page.type";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import Image from "next/image";
+import Link from "next/link";
 import SectionContainer from "../containers/section-container";
 
 async function getFeaturedSection(id: string) {
@@ -77,6 +78,16 @@ export default async function FeaturedSection(props: PossibleComponentType) {
           <div className='max-w-lg'>
             {documentToReactComponents(featuredSection.text.json)}
           </div>
+          {featuredSection.ctaText && featuredSection.ctaPage && (
+            <div className='mt-8'>
+              <Link
+                href={featuredSection.ctaPage.slug}
+                className='text-gray-500 font-sans uppercase border-2 border-primary py-2 px-4 hover:bg-primary hover:text-white transition-colors'
+              >
+                {featuredSection.ctaText}
+              </Link>
+            </div>
+          )}
         </div>
       </div>
     </SectionContainer>
