@@ -31,19 +31,21 @@ const HeroBanner = async (props: UnknownComponent) => {
   return (
     <div className='relative w-full flex justify-center'>
       {hero.imagesCollection.items.length > 0 && (
-        <HeroGallery images={hero.imagesCollection.items} />
+        <div className='h-[85vh]'>
+          <HeroGallery images={hero.imagesCollection.items} />
+        </div>
       )}
       {hero.imagesCollection.items.length === 0 && hero.image && (
         <Image
           src={hero.image.url}
           alt={hero.image.title}
           fill
-          className='object-center object-cover h-[95vh] w-full absolute top-0 left-0 z-0 rounded opacity-70'
+          className='object-center object-cover h-[85vh] w-full absolute top-0 left-0 z-0 rounded opacity-70'
         />
       )}
       <SectionContainer>
         <div className='relative flex w-full'>
-          <div className='flex flex-col items-center justify-between pt-44 pb-4 md:pt-28 md:pb-10  w-full gap-4 z-10'>
+          <div className='flex flex-col items-center justify-between mt-36 md:mt-24 w-full gap-4 z-10'>
             {hero.headline && (
               <AnimatedText>
                 <h1 className='font-light leading-relaxed'>{hero.headline}</h1>
@@ -77,7 +79,7 @@ const HeroBanner = async (props: UnknownComponent) => {
             </div>
             <AnimatedText speed={1.6}>
               <div className='flex flex-col items-center mt-20'>
-                <p className='text-sm italic'>Scroll</p>
+                <p className='text-sm italic text-white/90'>Scroll</p>
                 <MoveDown color='white' size={12} />
               </div>
             </AnimatedText>

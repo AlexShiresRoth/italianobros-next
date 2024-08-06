@@ -1,35 +1,30 @@
 export const pageQuery = (slug: string): string => `query {
-  pageCollection(where: { slug: "${slug}" }, limit:1) {
+  pageCollection(where: { slug: "${slug}" }, limit: 1) {
     items {
       seoMetadata {
-            name
-            title
-            description
-            image {
-              url(transform: { width: 500, height: 500, format: WEBP, quality: 65 })
-            }
-            noIndex
-            noFollow
+        name
+        title
+        description
+        image {
+          url(transform: { width: 500, height: 500, format: WEBP, quality: 65 })
         }
-          pageName
-          slug
-          sys {
-          id
-          }
+        noIndex
+        noFollow
+      }
+      pageName
+      slug
+      sys {
+        id
+      }
       topSectionCollection {
         items {
-            __typename
+          __typename
           ... on ComponentHeroBanner {
             sys {
               id
             }
           }
-          ... on FeaturedPostsSection {
-            sys {
-              id
-            }
-          }
-          ... on MorePostsSection {
+          ... on FeaturedSection {
             sys {
               id
             }
@@ -41,17 +36,7 @@ export const pageQuery = (slug: string): string => `query {
       }
       extraSectionCollection {
         items {
-            __typename
-          ... on FeaturedPostsSection {
-              sys {
-                id
-              }
-          }
-          ... on MorePostsSection {
-            sys {
-              id
-            }
-          }
+          __typename
         }
       }
     }

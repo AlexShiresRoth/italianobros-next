@@ -25,10 +25,10 @@ export default function HeroGallery({ images }: Props) {
           <motion.div
             key={image.url}
             initial={{ opacity: 0 }}
-            animate={{ opacity: 0.6 }}
+            animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 2 }}
-            className='absolute top-0 left-0 w-full h-full bg-white dark:bg-white'
+            className='absolute top-0 left-0 w-full h-full z-0'
           >
             <Image
               src={image.url}
@@ -40,6 +40,8 @@ export default function HeroGallery({ images }: Props) {
           </motion.div>
         ) : null
       )}
+
+      <div className='absolute top-0 left-0 w-full h-full bg-black/40 dark:bg-black/40 z-10' />
     </AnimatePresence>
   );
 }
