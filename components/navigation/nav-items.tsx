@@ -17,7 +17,7 @@ export default function NavItems({ navItemsCollection, slug }: NavProps) {
                   <Link
                     href={menuItem.groupLink.slug}
                     className={classNames(
-                      "transition-all font-garamond hover:text-primary hover:border-b-primary border-b border-b-transparent",
+                      "transition-all font-light hover:text-primary hover:border-b-primary border-b border-b-transparent",
                       {
                         "text-primary": slug === menuItem.groupLink.slug,
                         "text-gray-400 dark:text-gray-400":
