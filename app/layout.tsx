@@ -1,65 +1,17 @@
-import { fetchGraphQL } from '@/contentful/api';
-import './globals.css';
-import { Rubik } from 'next/font/google';
-import { appQuery } from '@/contentful/gql-queries';
-import Header from '@/components/header/header';
-import Footer from '@/components/footer/footer';
-import { Suspense } from 'react';
-import { Metadata } from 'next';
-import { SEOMetadata } from '@/types/page.type';
+import { getAppData } from "@/contentful/gql-queries";
+import { Metadata } from "next";
+import { Cormorant_Garamond } from "next/font/google";
+import "./globals.css";
 
-const rubik = Rubik({
-  subsets: ['latin'],
-  variable: '--font-abeezee',
-  weight: ['400', '500', '600', '700'],
+const garamond = Cormorant_Garamond({
+  subsets: ["latin"],
+  variable: "--font-garamond",
+  weight: ["300", "400", "500", "600", "700"],
 });
-
-export interface AppQueryResponse {
-  data: {
-    appCollection: {
-      items: {
-        seoMetadata: SEOMetadata;
-        sys: {
-          id: string;
-        };
-        header: {
-          sys: {
-            id: string;
-          };
-          __typename: string;
-        };
-        footer: {
-          sys: {
-            id: string;
-          };
-          __typename: string;
-        };
-        homePage: {
-          sys: {
-            id: string;
-          };
-        };
-      }[];
-    };
-  };
-}
 
 type Props = {
   children: React.ReactNode;
 };
-
-async function getAppData(domain: string) {
-  try {
-    const res = await fetchGraphQL<AppQueryResponse>(appQuery(domain));
-
-    const app = res.data.appCollection.items[0];
-
-    return app;
-  } catch (error) {
-    console.error('Error fetching app data:', error);
-    return null;
-  }
-}
 
 export async function generateMetadata(): Promise<Metadata> {
   const app = await getAppData(process.env.DOMAIN as string);
@@ -68,7 +20,7 @@ export async function generateMetadata(): Promise<Metadata> {
     return {
       title: `Blog Starter`,
       description:
-        'Starting Template For a Blog Site, using contentful and NextJS 14',
+        "Starting Template For a Blog Site, using contentful and NextJS 14",
     };
   }
 
@@ -86,17 +38,12 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function RootLayout({ children }: Props) {
   const app = await getAppData(process.env.DOMAIN as string);
   if (!app) return null;
+
   return (
     <>
-      <html lang="en" className={`${rubik.className}`}>
+      <html lang='en' className={`${garamond.className}`}>
         <body>
-          <>
-            <Suspense>
-              <Header data={app.header} />
-            </Suspense>
-            {children}
-            <Footer data={app.footer} />
-          </>
+          <>{children}</>
         </body>
       </html>
     </>

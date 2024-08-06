@@ -46,6 +46,9 @@ export const headerQuery = (
                 }
                 featuredPagesCollection(limit: 10, preview: ${!!isPreview}) {
                     items {
+                        sys {
+                            id
+                        }
                         slug
                         pageName
                     }

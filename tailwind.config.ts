@@ -10,16 +10,19 @@ module.exports = {
   ],
   theme: {
     screens: {
-      sm: '480px',
-      md: '768px',
-      lg: '1225px',
-      xl: '1440px',
+      sm: "480px",
+      md: "768px",
+      lg: "1225px",
+      xl: "1440px",
     },
     extend: {
+      colors: {
+        primary: "#ceb862",
+      },
       fontFamily: {
         sans: ["Inter", "sans-serif"],
+        garamond: ["Cormorant Garamond", "serif"],
       },
-      
     },
   },
   plugins: [require("tailwindcss-animate")],

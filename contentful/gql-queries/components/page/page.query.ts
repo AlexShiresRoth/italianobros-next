@@ -13,6 +13,9 @@ export const pageQuery = (slug: string): string => `query {
         }
           pageName
           slug
+          sys {
+          id
+          }
       topSectionCollection {
         items {
             __typename
@@ -64,6 +67,9 @@ export const pageCollectionQuerySlugOnly = (
   pageCollection(limit: ${limit}, skip: ${skip}, where: { slug_exists: true , slug: "${slug}" }) {
     items {
       slug
+      sys {
+        id
+      }
     }
   }
  }`;
