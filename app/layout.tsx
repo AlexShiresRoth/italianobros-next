@@ -1,6 +1,4 @@
-import { fetchGraphQL } from "@/contentful/api";
-import { appQuery } from "@/contentful/gql-queries";
-import { AppQueryResponse } from "@/types/app";
+import { getAppData } from "@/contentful/gql-queries";
 import { Metadata } from "next";
 import { Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
@@ -14,19 +12,6 @@ const garamond = Cormorant_Garamond({
 type Props = {
   children: React.ReactNode;
 };
-
-async function getAppData(domain: string) {
-  try {
-    const res = await fetchGraphQL<AppQueryResponse>(appQuery(domain));
-
-    const app = res.data.appCollection.items[0];
-
-    return app;
-  } catch (error) {
-    console.error("Error fetching app data:", error);
-    return null;
-  }
-}
 
 export async function generateMetadata(): Promise<Metadata> {
   const app = await getAppData(process.env.DOMAIN as string);

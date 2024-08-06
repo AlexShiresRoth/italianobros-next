@@ -5,10 +5,10 @@ import { SubMenu } from "./sub-menu";
 
 type NavProps = NavigationData & { slug?: string };
 
-const Nav = ({ actionItemsCollection, navItemsCollection, slug }: NavProps) => {
+const Nav = ({ navItemsCollection, slug }: NavProps) => {
   return (
     <>
-      <nav className='flex justify-center'>
+      <nav className='justify-center flex'>
         <div className='w-full flex items-center py-2'>
           <div className='w-full flex items-center gap-4 justify-between'>
             {navItemsCollection.items.map((item) => (
@@ -18,7 +18,7 @@ const Nav = ({ actionItemsCollection, navItemsCollection, slug }: NavProps) => {
                     <div key={menuItem.sys.id}>
                       {menuItem.featuredPagesCollection.items.length === 0 && (
                         <Link
-                          href={menuItem.groupLink.slug ?? null}
+                          href={menuItem.groupLink.slug}
                           className={classNames(
                             "transition-all font-garamond hover:text-primary hover:border-b-primary border-b border-b-transparent",
                             {
@@ -42,7 +42,6 @@ const Nav = ({ actionItemsCollection, navItemsCollection, slug }: NavProps) => {
           </div>
         </div>
       </nav>
-      {/* <MobileNav navigation={navigation} /> */}
     </>
   );
 };

@@ -3,9 +3,8 @@ import Footer from "@/components/footer/footer";
 import Header from "@/components/header/header";
 import ComponentRenderer from "@/components/rendering/component-renderer";
 import { fetchGraphQL } from "@/contentful/api";
-import { appQuery } from "@/contentful/gql-queries";
+import { getAppData } from "@/contentful/gql-queries";
 import { pageQuery } from "@/contentful/gql-queries/components/page/page.query";
-import { AppQueryResponse } from "@/types/app";
 import { PageCollectionResponseData } from "@/types/page.type";
 import { Metadata, ResolvingMetadata } from "next";
 import { Suspense } from "react";
@@ -28,19 +27,6 @@ async function getHome(slug: string) {
     return res.data.pageCollection.items[0];
   } catch (error) {
     console.error("Error fetching home data:", error);
-    return null;
-  }
-}
-
-async function getAppData(domain: string) {
-  try {
-    const res = await fetchGraphQL<AppQueryResponse>(appQuery(domain));
-
-    const app = res.data.appCollection.items[0];
-
-    return app;
-  } catch (error) {
-    console.error("Error fetching app data:", error);
     return null;
   }
 }

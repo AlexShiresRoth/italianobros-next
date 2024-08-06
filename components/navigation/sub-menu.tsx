@@ -24,13 +24,13 @@ export const SubMenu = ({
         {item.groupName}
       </Link>
       {show && (
-        <div className='absolute z-10 shadow-lg p-2 rounded bg-white flex flex-col top-[100%] min-w-[150px]'>
+        <div className='absolute z-10 shadow-lg p-2 bg-white flex flex-col top-[100%] min-w-[150px]'>
           {item.featuredPagesCollection?.items.map((page) => {
             return (
               <Link
                 href={page.slug}
                 key={page.sys.id}
-                className=' text-gray-400 hover:text-primary transition-all p-2'
+                className='text-gray-400 hover:text-primary transition-all p-2'
               >
                 {page.pageName}
               </Link>

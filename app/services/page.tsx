@@ -10,6 +10,7 @@ import {
 import { PageCollectionResponseData } from "@/types/page.type";
 import { Metadata, ResolvingMetadata } from "next";
 import { notFound } from "next/navigation";
+
 type Props = {
   params: { slug: string };
   searchParams: { [key: string]: string | string[] | undefined };
