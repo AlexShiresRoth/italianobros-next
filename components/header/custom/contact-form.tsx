@@ -114,7 +114,7 @@ const ContactForm: React.FC = () => {
 
   return (
     <form
-      className='grid grid-cols-2 gap-4 w-11/12 p-4'
+      className='grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-4 w-11/12 p-4'
       action={action}
       onSubmit={form.onSubmit}
       id={form.id}
@@ -122,7 +122,10 @@ const ContactForm: React.FC = () => {
     >
       {inputs.map((input, i) => (
         <div key={i} className='flex flex-col justify-end relative'>
-          <label htmlFor={input.title} className=' text-white text-lg'>
+          <label
+            htmlFor={input.title}
+            className=' text-white text-sm md:text-lg'
+          >
             {input.label}
           </label>
           <input
@@ -132,7 +135,7 @@ const ContactForm: React.FC = () => {
             placeholder={input.placeholder}
             value={input.value}
             onChange={onChange}
-            className='bg-[#c2ac54] border-none p-2 text-white rounded-sm transition-all duration-300 ease-in-out placeholder-white focus:outline-none hover:shadow-lg md:bg-white/25'
+            className='bg-[#c2ac54] border-none p-2 text-white transition-all duration-300 ease-in-out placeholder-white focus:outline-none hover:shadow-lg md:bg-white/25'
           />
           {fields[input.title as keyof FormFields]?.errors && (
             <p className='text-red-600 text-sm absolute top-full left-0'>

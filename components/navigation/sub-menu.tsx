@@ -24,7 +24,7 @@ export const SubMenu = ({
         {item.groupName}
       </Link>
       {show && (
-        <div className='absolute z-10 shadow-lg p-2 bg-white flex flex-col top-[100%] min-w-[150px]'>
+        <div className='absolute z-10 shadow-lg p-2 bg-white hidden md:flex flex-col top-[100%] min-w-[150px]'>
           {item.featuredPagesCollection?.items.map((page) => {
             return (
               <Link

@@ -2,9 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-
 htmL {
-  @apply dark:bg-black;
+  @apply dark:bg-black tracking-wider;
 }
 
 h1 {
@@ -24,5 +23,5 @@ a {
 }
 
 input {
-  @apply indent-2 outline-none w-full bg-transparent dark:text-stone-100
+  @apply indent-2 outline-none w-full bg-transparent dark:text-stone-100;
 }

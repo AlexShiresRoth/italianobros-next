@@ -1,5 +1,5 @@
 export interface NavigationData {
-  actionItemsCollection: {
+  actionItemsCollection?: {
     items: {
       sys: {
         id: string;

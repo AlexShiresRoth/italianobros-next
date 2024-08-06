@@ -16,13 +16,16 @@ export async function sendContact(_prevState: unknown, formData: FormData) {
     throw new Error("Sendgrid API key not found");
   }
 
+  if (!process.env.TO_EMAIL || !process.env.FROM_EMAIL) {
+    throw new Error("Email address not found");
+  }
+
   sgMail.setApiKey(process.env.SENDGRID_API_KEY as string);
 
   const msg = {
-    to: "alex@alexshiresroth.com",
-    from: "alexroth96@gmail.com",
+    to: process.env.TO_EMAIL,
+    from: process.env.FROM_EMAIL,
     subject: "Client Contact Form Submission",
-    text: "and easy to do anywhere, even with Node.js",
     html: `<!DOCTYPE html>
 <html lang="en">
 <head>

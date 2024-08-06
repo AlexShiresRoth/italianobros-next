@@ -12,10 +12,12 @@ export default function MobileNavController() {
 }
 
 const HamburgerMenu = () => {
-  const { setMobileMenuToggled, mobileMenuToggled } = useContext(HeaderContext);
+  const { setMobileMenuToggled, mobileMenuToggled, setToggled } =
+    useContext(HeaderContext);
 
   const toggleMenu = () => {
     setMobileMenuToggled(!mobileMenuToggled);
+    setToggled(false);
   };
 
   return (
@@ -36,7 +38,7 @@ const HamburgerMenu = () => {
         />
         <span
           className={`block w-6 h-0.5 bg-primary  transform transition-transform duration-300 ${
-            mobileMenuToggled ? "-translate-y-1 -rotate-45" : ""
+            mobileMenuToggled ? "-translate-y-2 -rotate-45" : ""
           }`}
         />
       </button>

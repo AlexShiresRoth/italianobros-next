@@ -9,6 +9,7 @@ import Nav from "../navigation/nav";
 import MobileMenu from "../navigation/small-screen-nav";
 import Contact from "./custom/contact";
 import ContactController from "./custom/contact-controller";
+import MobileContactController from "./custom/mobile-contact-controller";
 import MobileNavController from "./custom/mobile-nav-controller";
 import { HeaderProvider } from "./header-context";
 
@@ -61,33 +62,39 @@ export default async function Header({ data, slug }: Props) {
 
   return (
     <HeaderProvider>
-      <div className='flex flex-col w-full fixed top-0 left-0 z-40 md:relative'>
-        <header
-          className='w-full flex flex-col items-center md:py-2 bg-white border-b border-b-stone-100 relative'
-          data-component-type='header'
-        >
-          <div className='grid grid-cols-3 w-full py-2 md:py-0 px-8 lg:px-0 md:w-11/12 lg:w-3/4 gap-8 items-center justify-between'>
-            <div className='md:block hidden'>
-              <Nav
-                actionItemsCollection={header.actionItemsCollection}
-                navItemsCollection={header.navItemsCollection}
-                slug={slug}
-              />
+      <div className='relative' id='mobile-toast-container'>
+        <div className='flex flex-col w-full fixed top-0 left-0 z-40 md:relative'>
+          <header
+            className='w-full flex flex-col items-center md:py-3 bg-white relative'
+            data-component-type='header'
+          >
+            <div className='grid grid-cols-3 w-full py-2 md:py-0 px-8 lg:px-0 md:w-11/12 lg:w-3/4 gap-8 items-center justify-between'>
+              <div className='md:block hidden'>
+                <Nav
+                  actionItemsCollection={header.actionItemsCollection}
+                  navItemsCollection={header.navItemsCollection}
+                  slug={slug}
+                />
+              </div>
+              <div className='block md:hidden'>
+                <MobileNavController />
+              </div>
+              <div className='flex flex-col md:flex-row md:flex-wrap items-center justify-center'>
+                <HeaderLogo logo={header.logo} title={header.title} />
+              </div>
+              <div className='hidden md:flex items-center justify-end'>
+                <ContactController />
+              </div>
             </div>
-            <div className='block md:hidden'>
-              <MobileNavController />
-            </div>
-            <div className='flex flex-col md:flex-row md:flex-wrap items-center justify-center'>
-              <HeaderLogo logo={header.logo} title={header.title} />
-            </div>
-            <div className='hidden md:flex items-center justify-end'>
-              <ContactController />
-            </div>
-          </div>
-
-          <MobileMenu />
-        </header>
-        <Contact />
+            <MobileContactController />
+            <MobileMenu
+              actionItemsCollection={header.actionItemsCollection}
+              navItemsCollection={header.navItemsCollection}
+              slug={slug}
+            />
+          </header>
+          <Contact />
+        </div>
       </div>
     </HeaderProvider>
   );
@@ -98,7 +105,7 @@ const LogoClassNamesDarkMode = `dark:text-white`;
 
 const HeaderLogo = ({ logo, title }: Pick<Header, "logo" | "title">) => (
   <Link href={"/"} className='flex items-center'>
-    {logo && <Image src={logo.url} alt={logo.title} width={120} height={60} />}
+    {logo && <Image src={logo.url} alt={logo.title} width={150} height={70} />}
     {!logo && (
       <h2 className={cn([LogoClassNamesBase, LogoClassNamesDarkMode])}>
         {title}
