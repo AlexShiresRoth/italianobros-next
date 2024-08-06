@@ -29,6 +29,11 @@ export const pageQuery = (slug: string): string => `query {
               id
             }
           }
+          ... on GallerySection {
+            sys {
+              id
+              } 
+            }
         }
       }
       pageContent {
@@ -37,6 +42,21 @@ export const pageQuery = (slug: string): string => `query {
       extraSectionCollection {
         items {
           __typename
+          ... on ComponentHeroBanner {
+            sys {
+              id
+            }
+          }
+          ... on FeaturedSection {
+            sys {
+              id
+            }
+          }
+          ... on GallerySection {
+            sys {
+              id
+              } 
+            }
         }
       }
     }
