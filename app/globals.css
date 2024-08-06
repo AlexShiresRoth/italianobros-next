@@ -7,7 +7,7 @@ htmL {
 }
 
 h1 {
-  @apply text-4xl md:text-5xl lg:text-6xl max-w-[70vw] text-center dark:text-white font-light font-garamond;
+  @apply text-3xl md:text-5xl lg:text-6xl max-w-5xl text-center dark:text-white font-light font-garamond;
 }
 
 h2 {

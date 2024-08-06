@@ -25,16 +25,17 @@ export default function HeroGallery({ images }: Props) {
           <motion.div
             key={image.url}
             initial={{ opacity: 0 }}
-            animate={{ opacity: 0.4 }}
+            animate={{ opacity: 0.6 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 2 }}
-            className='absolute top-0 left-0 w-full h-full bg-black'
+            className='absolute top-0 left-0 w-full h-full bg-white dark:bg-white'
           >
             <Image
               src={image.url}
               alt={image.title || image.description}
               fill
               className='object-center object-cover h-full w-full'
+              unoptimized
             />
           </motion.div>
         ) : null
