@@ -19,7 +19,7 @@ p {
 }
 
 a {
-  @apply hover:text-indigo-500 transition-colors dark:text-white font-garamond;
+  @apply hover:text-primary transition-colors dark:text-white font-garamond;
 }
 
 input {
