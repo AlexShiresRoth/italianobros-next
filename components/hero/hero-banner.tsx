@@ -43,7 +43,7 @@ const HeroBanner = async (props: UnknownComponent) => {
       )}
       <SectionContainer>
         <div className='relative flex w-full'>
-          <div className='flex flex-col items-center justify-between pt-44 pb-16 md:pt-28 md:pb-10  w-full gap-4 z-10'>
+          <div className='flex flex-col items-center justify-between pt-44 pb-4 md:pt-28 md:pb-10  w-full gap-4 z-10'>
             {hero.headline && (
               <AnimatedText>
                 <h1 className='font-light leading-relaxed'>{hero.headline}</h1>

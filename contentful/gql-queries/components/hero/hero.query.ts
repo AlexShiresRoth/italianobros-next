@@ -17,7 +17,11 @@ export const heroQuery = (id: string) => `query {
     }
     image {
       ... on Asset {
-        url
+          url(transform :{
+            format: WEBP
+            width: 1000
+            quality: 90
+  })
         title
         description 
       }
@@ -25,7 +29,11 @@ export const heroQuery = (id: string) => `query {
       imagesCollection {
       items {
         ... on Asset {
-          url
+          url(transform :{
+            format: WEBP
+            width: 1000
+            quality: 90
+      })
           title
           description 
         }
