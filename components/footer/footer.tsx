@@ -38,7 +38,7 @@ const Footer = async ({ data }: Props) => {
       data-component-type='footer'
     >
       <div className='w-11/12 mx-4 md:mx-0 flex flex-col gap-8 md:flex-row'>
-        <div className='w-full mx-4 md:mx-0 flex flex-col gap-8 md:flex-row justify-between py-14'>
+        <div className='w-full flex flex-col gap-8 md:flex-row justify-between py-14'>
           <div className='flex flex-col'>
             {!footerData.logo?.url && (
               <h3 className='font-bold text-white text-uppercase'>
