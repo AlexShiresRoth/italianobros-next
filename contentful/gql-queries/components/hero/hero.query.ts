@@ -22,6 +22,15 @@ export const heroQuery = (id: string) => `query {
         description 
       }
     }
+      imagesCollection {
+      items {
+        ... on Asset {
+          url
+          title
+          description 
+        }
+      } 
+    }
   }
 }
 `;

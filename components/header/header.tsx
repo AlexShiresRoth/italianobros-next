@@ -105,7 +105,7 @@ const LogoClassNamesDarkMode = `dark:text-white`;
 
 const HeaderLogo = ({ logo, title }: Pick<Header, "logo" | "title">) => (
   <Link href={"/"} className='flex items-center'>
-    {logo && <Image src={logo.url} alt={logo.title} width={150} height={70} />}
+    {logo && <Image src={logo.url} alt={logo.title} width={170} height={90} />}
     {!logo && (
       <h2 className={cn([LogoClassNamesBase, LogoClassNamesDarkMode])}>
         {title}
