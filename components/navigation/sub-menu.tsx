@@ -19,7 +19,7 @@ export const SubMenu = ({
     >
       <Link
         href={item.groupLink.slug}
-        className='flex items-center gap-2 text-gray-400 hover:text-primary border-b border-b-transparent hover:border-b-primary'
+        className='flex items-center text-gray-400 hover:text-primary border-b border-b-transparent hover:border-b-primary'
       >
         {item.groupName}
       </Link>
