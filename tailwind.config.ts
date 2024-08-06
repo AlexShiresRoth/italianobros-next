@@ -21,7 +21,7 @@ module.exports = {
       },
       fontFamily: {
         sans: ["Inter", "sans-serif"],
-        garamond: ["Cormorant Garamond", "Garamond", "serif"],
+        // garamond: ["Cormorant Garamond", "Garamond", "serif"],
       },
     },
   },

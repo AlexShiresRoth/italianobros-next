@@ -47,7 +47,7 @@ export default async function Gallery(props: PossibleComponentType) {
                   href={gallery.ctaPage.slug || ""}
                   className='absolute top-0 left-0 w-full h-full bg-gray-500/40 flex flex-col justify-center items-center hover:bg-primary/40 transition-colors'
                 >
-                  <h3 className='text-white text-2xl md:text-4xl uppercase font-garamond'>
+                  <h3 className='text-white text-2xl md:text-4xl uppercase '>
                     {image.title}
                   </h3>
                 </Link>

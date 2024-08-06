@@ -9,7 +9,7 @@ export default function ContactController() {
     <>
       <button
         onClick={() => setToggled(!toggled)}
-        className='text-grey-500 dark:text-gray-500 border border-primary py-3 px-10 font-light text-sm font-garamond uppercase hover:bg-primary hover:text-white transition-colors'
+        className='text-grey-500 dark:text-gray-500 border border-primary py-3 px-10 font-light text-sm  uppercase hover:bg-primary hover:text-white transition-colors'
       >
         {toggled ? "Close" : "Contact Us"}
       </button>

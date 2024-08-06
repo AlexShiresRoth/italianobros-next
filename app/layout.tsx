@@ -5,11 +5,17 @@ import "./globals.css";
 
 const garamond = Cormorant_Garamond({
   subsets: ["latin"],
+  display: "swap",
   variable: "--font-garamond",
   weight: ["300", "400", "500", "600", "700"],
 });
 
-const inter = Inter({ subsets: ["latin"], weight: ["300", "400", "500"] });
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["300", "400", "500"],
+  display: "swap",
+  variable: "--font-inter",
+});
 
 type Props = {
   children: React.ReactNode;
@@ -43,7 +49,7 @@ export default async function RootLayout({ children }: Props) {
 
   return (
     <>
-      <html lang='en' className={`${inter.className} ${garamond.className}`}>
+      <html lang='en' className={`${inter.variable} ${garamond.variable}`}>
         <body>
           <>{children}</>
         </body>
