@@ -31,8 +31,8 @@ export const heroQuery = (id: string) => `query {
         ... on Asset {
           url(transform :{
             format: WEBP
-            width: 1000
-            quality: 90
+            width: 1500
+            quality: 100
       })
           title
           description 

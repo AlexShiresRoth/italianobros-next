@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 htmL {
-  @apply dark:bg-black tracking-wider font-garamond;
+  @apply tracking-wider font-garamond;
 }
 
 h1 {
@@ -15,7 +15,7 @@ h2 {
 }
 
 p {
-  @apply text-base md:text-lg text-stone-500 dark:text-stone-300 font-garamond;
+  @apply text-base md:text-lg text-gray-500 dark:text-gray-500 font-garamond;
 }
 
 a {
