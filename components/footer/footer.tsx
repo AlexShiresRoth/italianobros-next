@@ -37,7 +37,7 @@ const Footer = async ({ data }: Props) => {
       className='w-full flex flex-col items-center justify-center bg-[#707070]'
       data-component-type='footer'
     >
-      <div className='w-11/12 mx-4 md:mx-0 flex flex-col gap-8 md:flex-row'>
+      <div className='w-full px-8 md:px-0 md:w-11/12 mx-4 md:mx-0 flex flex-col gap-8 md:flex-row'>
         <div className='w-full flex flex-col gap-8 md:flex-row justify-between py-14'>
           <div className='flex flex-col'>
             {!footerData.logo?.url && (
@@ -120,9 +120,9 @@ const Footer = async ({ data }: Props) => {
         </div>
       </div>
       <div className='w-full border-t-2 border-primary/10 py-2 flex items-center justify-center'>
-        <div className='w-11/12 py-4 mx-4 md:mx-0 flex justify-between gap-4 md:gap-0 md:items-center flex-col md:flex-row'>
+        <div className='w-full px-8 md:px-0 md:w-11/12 py-4 md:mx-0 flex justify-between gap-4 md:gap-0 md:items-center flex-col md:flex-row'>
           <p className='text-white/80 text-xs'>
-            &copy; {footerData.brandName} All Rights Reserved
+            &copy; {footerData.brandName} All Rights Reserved.
           </p>
           <p className='text-white/80 text-xs'>
             Website Development by {` `}
