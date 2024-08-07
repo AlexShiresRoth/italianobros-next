@@ -1,4 +1,5 @@
-import { EntryFields, EntrySys } from 'contentful';
+import { Document } from "@contentful/rich-text-types";
+import { EntryFields, EntrySys } from "contentful";
 
 export interface Footer {
   sys: EntrySys;
@@ -16,6 +17,9 @@ export interface Footer {
     items: {
       sys: EntrySys;
       menuTitle: EntryFields.Symbol;
+      columnText: {
+        json: Document;
+      };
       menuItemsCollection: {
         items: {
           sys: EntrySys;
@@ -24,6 +28,7 @@ export interface Footer {
             __typename: EntryFields.Symbol;
             slug: EntryFields.Symbol;
           };
+
           featuredPagesCollection: {
             items: {
               sys: EntrySys;

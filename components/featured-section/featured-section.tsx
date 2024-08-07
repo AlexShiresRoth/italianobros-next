@@ -64,13 +64,13 @@ export default async function FeaturedSection(props: PossibleComponentType) {
         >
           {featuredSection.preHeading && (
             <div>
-              <h3 className='font-garamond text-sm dark:text-gray-400 text-gray-400'>
+              <h3 className=' text-sm dark:text-gray-400 text-gray-400'>
                 {featuredSection.preHeading}
               </h3>
             </div>
           )}
           <div>
-            <h2 className='font-garamond font-bold text-4xl text-gray-500 dark:text-gray-500'>
+            <h2 className=' font-bold text-4xl text-gray-500 dark:text-gray-500'>
               {featuredSection.heading}
             </h2>
           </div>

@@ -1,9 +1,7 @@
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import { BLOCKS, MARKS } from '@contentful/rich-text-types';
-import RichTextAsset from './rich-text-asset';
-import { Document } from '@contentful/rich-text-types';
-import RichTextEntry from './rich-text-entry';
-import { EntryFields } from 'contentful';
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import { BLOCKS, Document, INLINES } from "@contentful/rich-text-types";
+import RichTextAsset from "./rich-text-asset";
+import RichTextEntry from "./rich-text-entry";
 
 const customMarkdownOptions = (content: any) => ({
   renderNode: {
@@ -14,18 +12,31 @@ const customMarkdownOptions = (content: any) => ({
       <RichTextEntry entryId={node.data.target.sys.id} />
     ),
     [BLOCKS.HEADING_1]: (node: any) => (
-      <h1 className="text-3xl md:text-5xl font-bold text-gray-900">
+      <h1 className='text-3xl md:text-5xl font-bold text-gray-900'>
         {node.content[0].value}
       </h1>
     ),
     [BLOCKS.HEADING_3]: (node: any) => (
-      <h3 className="text-2xl font-bold text-gray-700">
+      <h3 className='text-2xl font-bold text-gray-700'>
         {node.content[0].value}
       </h3>
     ),
-    [BLOCKS.PARAGRAPH]: (node: any) => (
-      <p className="my-2">{node.content[0].value}</p>
-    ),
+
+    [BLOCKS.PARAGRAPH]: (node: any) => {
+      const foundHyperlink = node.content.find(
+        (content: { nodeType: string }) =>
+          content.nodeType === INLINES.HYPERLINK
+      );
+
+      if (foundHyperlink) {
+        return (
+          <a className='my-2 text-primary block' href={foundHyperlink.data.uri}>
+            {foundHyperlink.content[0].value}
+          </a>
+        );
+      }
+      return <p className='my-2'>{node.content[0].value}</p>;
+    },
   },
 });
 

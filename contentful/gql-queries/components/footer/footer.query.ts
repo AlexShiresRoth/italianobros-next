@@ -20,6 +20,9 @@ query {
           id
         }
         menuTitle
+        columnText {
+              json
+            }
         menuItemsCollection{
           items {
             sys {
@@ -32,6 +35,7 @@ query {
                 slug
               }
             }
+            
             featuredPagesCollection{
               items {
                 slug
