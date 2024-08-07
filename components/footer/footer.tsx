@@ -120,7 +120,7 @@ const Footer = async ({ data }: Props) => {
         </div>
       </div>
       <div className='w-full border-t-2 border-primary/10 py-2 flex items-center justify-center'>
-        <div className='w-full px-8 m-0 md:px-0 md:w-11/12 py-4 md:mx-0 flex justify-between gap-4 md:gap-0 md:items-center flex-col md:flex-row'>
+        <div className='w-full px-8 md:px-0 md:w-11/12 py-4 md:mx-0 flex justify-between gap-4 md:gap-0 md:items-center flex-col md:flex-row'>
           <p className='text-white/80 text-xs'>
             &copy; {footerData.brandName} All Rights Reserved
           </p>
