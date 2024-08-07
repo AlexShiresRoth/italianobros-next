@@ -3,6 +3,7 @@ import { featuredSectionQuery } from "@/contentful/gql-queries/components/featur
 import { FeaturedSectionResponseData } from "@/types";
 import { PossibleComponentType } from "@/types/page.type";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import classNames from "classnames";
 import Image from "next/image";
 import Link from "next/link";
 import SectionContainer from "../containers/section-container";
@@ -60,7 +61,15 @@ export default async function FeaturedSection(props: PossibleComponentType) {
           </div>
         )}
         <div
-          className={`w-full md:w-1/2 flex flex-col p-4 md:p-16 justify-center`}
+          className={classNames(
+            `w-full md:w-1/2 flex flex-col p-4 md:p-16 justify-center`,
+            {
+              "md:border-l-2 border-l-primary":
+                featuredSection.alignText === "left",
+              "md:border-r-2 border-r-primary":
+                featuredSection.alignText === "right",
+            }
+          )}
         >
           {featuredSection.preHeading && (
             <div>

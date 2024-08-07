@@ -6,6 +6,7 @@ import SignupBox from "../forms/sign-up/sign-up-box";
 import Gallery from "../gallery/gallery";
 import HeroBanner from "../hero/hero-banner";
 import ComponentWrapper from "../wrappers/component-wrapper";
+import CustomComponentStrategy from "./custom-component-strategy";
 
 type Props = {
   itemsToRender: PossibleComponentType[];
@@ -41,6 +42,11 @@ const ComponentRenderer = ({ itemsToRender }: Props) => {
         }
         if (component.__typename === "GallerySection") {
           return <Gallery key={component.sys.id} {...component} />;
+        }
+        if (component.__typename === "CustomComponent") {
+          return (
+            <CustomComponentStrategy key={component.sys.id} {...component} />
+          );
         }
         console.log("Component not found", component);
       })}
