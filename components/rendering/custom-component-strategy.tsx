@@ -20,7 +20,7 @@ export default async function CustomComponentStrategy(
   component: PossibleComponentType
 ) {
   const customComponentData = await getCustomComponent(component.sys.id);
-  console.log("customComponentData", customComponentData);
+
   if (!customComponentData) return null;
 
   switch (customComponentData.componentName) {
