@@ -34,6 +34,11 @@ export const pageQuery = (slug: string): string => `query {
               id
               } 
             }
+          ... on CustomComponent {
+              sys {
+                id
+          }
+         }
         }
       }
       pageContent {
