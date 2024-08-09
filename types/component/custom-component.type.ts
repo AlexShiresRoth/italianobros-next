@@ -4,7 +4,7 @@ export interface CustomComponent {
   };
   title: string;
   // TODO - add componentNames for each component
-  componentName: "Instagram Feed Display";
+  componentName: "Instagram Feed Display" | "Services Nav";
 }
 
 export interface CustomComponentResponseData {

@@ -3,6 +3,7 @@ import { customComponentQuery } from "@/contentful/gql-queries";
 import { CustomComponentResponseData } from "@/types/component/custom-component.type";
 import { PossibleComponentType } from "@/types/page.type";
 import InstagramEmbed from "../custom/instagram-display";
+import ServicesNav from "../custom/services-nav";
 
 async function getCustomComponent(id: string) {
   try {
@@ -26,6 +27,8 @@ export default async function CustomComponentStrategy(
   switch (customComponentData.componentName) {
     case "Instagram Feed Display":
       return <InstagramEmbed />;
+    case "Services Nav":
+      return <ServicesNav slug={component.slug} />;
     default:
       return null;
   }

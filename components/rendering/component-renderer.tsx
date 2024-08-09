@@ -1,6 +1,5 @@
 import { PossibleComponentType } from "@/types/page.type";
-import BlogFeatured from "../blog/blog-featured";
-import MorePosts from "../blog/more-posts";
+import DuplexComponent from "../duplex/duplex-component";
 import FeaturedSection from "../featured-section/featured-section";
 import SignupBox from "../forms/sign-up/sign-up-box";
 import Gallery from "../gallery/gallery";
@@ -10,9 +9,10 @@ import CustomComponentStrategy from "./custom-component-strategy";
 
 type Props = {
   itemsToRender: PossibleComponentType[];
+  slug?: string;
 };
 
-const ComponentRenderer = ({ itemsToRender }: Props) => {
+const ComponentRenderer = ({ itemsToRender, slug }: Props) => {
   if (!itemsToRender) return null;
   return (
     <>
@@ -23,12 +23,6 @@ const ComponentRenderer = ({ itemsToRender }: Props) => {
         }
         if (component.__typename === "ComponentHeroBanner") {
           return <HeroBanner {...component} key={component.sys.id} />;
-        }
-        if (component.__typename === "FeaturedPostsSection") {
-          return <BlogFeatured key={component.sys.id} {...component} />;
-        }
-        if (component.__typename === "MorePostsSection") {
-          return <MorePosts key={component.sys.id} {...component} />;
         }
         if (component.__typename === "SignUpBox") {
           return (
@@ -43,9 +37,16 @@ const ComponentRenderer = ({ itemsToRender }: Props) => {
         if (component.__typename === "GallerySection") {
           return <Gallery key={component.sys.id} {...component} />;
         }
+        if (component.__typename === "ComponentDuplex") {
+          return <DuplexComponent key={component.sys.id} {...component} />;
+        }
         if (component.__typename === "CustomComponent") {
           return (
-            <CustomComponentStrategy key={component.sys.id} {...component} />
+            <CustomComponentStrategy
+              key={component.sys.id}
+              {...component}
+              slug={slug}
+            />
           );
         }
         console.log("Component not found", component);

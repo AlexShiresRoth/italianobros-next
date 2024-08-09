@@ -16,6 +16,13 @@ export const pageQuery = (slug: string): string => `query {
       sys {
         id
       }
+      image {
+        url(transform: { width: 1500, height: 700, format: WEBP, quality: 85 })
+        title
+        description
+      }
+      heading
+      subHeading
       topSectionCollection {
         items {
           __typename
@@ -32,13 +39,18 @@ export const pageQuery = (slug: string): string => `query {
           ... on GallerySection {
             sys {
               id
-              } 
             }
-          ... on CustomComponent {
-              sys {
-                id
           }
-         }
+          ... on CustomComponent {
+            sys {
+              id
+            }
+          }
+          ... on ComponentDuplex {
+            sys {
+              id
+            }
+          }
         }
       }
       pageContent {
@@ -60,8 +72,13 @@ export const pageQuery = (slug: string): string => `query {
           ... on GallerySection {
             sys {
               id
-              } 
             }
+          }
+          ... on ComponentDuplex {
+            sys {
+              id
+            }
+          }
         }
       }
     }
