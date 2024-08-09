@@ -52,15 +52,15 @@ export default async function InstagramDisplay() {
 
   return (
     <SectionContainer bgColor='bg-primary/10'>
-      <div className='flex items-center justify-between'>
+      <div className='flex items-center justify-between flex-wrap gap-4'>
         <Link
           href='/our-work'
-          className='uppercase text-xl text-gray-500 flex items-center'
+          className='uppercase text-sm md:text-xl text-gray-500 flex items-center'
         >
-          VIEW THE GALLERY <ArrowRight className='inline-block' />
+          VIEW THE GALLERY <ArrowRight className='inline-block size-4' />
         </Link>
         <a
-          className='uppercase text-xl text-gray-500'
+          className='uppercase text-sm md:text-xl text-gray-500'
           href='https://www.instagram.com/italianobros.enterprise/'
         >
           Follow us on Instagram
