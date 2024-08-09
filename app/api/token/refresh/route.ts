@@ -43,7 +43,7 @@ async function getRefreshTokenFromInstagram(accessToken: string) {
   }
 }
 
-export async function POST(request: NextRequest) {
+export async function GET(request: NextRequest) {
   try {
     if (
       request.headers.get("Authorization") !==
