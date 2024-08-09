@@ -20,8 +20,7 @@ export default function NavItems({ navItemsCollection, slug }: NavProps) {
                       "transition-all font-light hover:text-primary hover:border-b-primary border-b border-b-transparent",
                       {
                         "text-primary": slug === menuItem.groupLink.slug,
-                        "text-gray-400 dark:text-gray-400":
-                          slug !== menuItem.groupLink.slug,
+                        "text-gray-400": slug !== menuItem.groupLink.slug,
                       }
                     )}
                   >
@@ -29,7 +28,7 @@ export default function NavItems({ navItemsCollection, slug }: NavProps) {
                   </Link>
                 )}
                 {menuItem.featuredPagesCollection.items.length > 0 && (
-                  <SubMenu item={menuItem} />
+                  <SubMenu item={menuItem} slug={slug} />
                 )}
               </div>
             );

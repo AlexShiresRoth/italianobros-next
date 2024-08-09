@@ -1,12 +1,15 @@
 "use client";
 
 import { NavigationData } from "@/types/nav";
+import classNames from "classnames";
 import Link from "next/link";
 import { useState } from "react";
 
 export const SubMenu = ({
   item,
+  slug,
 }: {
+  slug?: string;
   // TODO - fix this type lol
   item: NavigationData["navItemsCollection"]["items"][number]["menuItemsCollection"]["items"][number];
 }) => {
@@ -18,8 +21,14 @@ export const SubMenu = ({
       onMouseLeave={() => setShow(false)}
     >
       <Link
-        href={item.groupLink.slug}
-        className='flex items-center text-gray-400 hover:text-primary border-b border-b-transparent hover:border-b-primary'
+        href={`${item.groupLink.slug}`}
+        className={classNames(
+          "flex items-center  hover:text-primary border-b border-b-transparent hover:border-b-primary",
+          {
+            "text-primary": slug === item.groupLink.slug,
+            "text-gray-400": slug !== item.groupLink.slug,
+          }
+        )}
       >
         {item.groupName}
       </Link>
@@ -28,9 +37,12 @@ export const SubMenu = ({
           {item.featuredPagesCollection?.items.map((page) => {
             return (
               <Link
-                href={page.slug}
+                href={`${page.slug}${"#"}${page.slug}`}
                 key={page.sys.id}
-                className='text-gray-400 hover:text-primary transition-all p-2'
+                className={classNames("hover:text-primary transition-all p-2", {
+                  "text-primary": slug === page.slug,
+                  "text-gray-400": slug !== page.slug,
+                })}
               >
                 {page.pageName}
               </Link>

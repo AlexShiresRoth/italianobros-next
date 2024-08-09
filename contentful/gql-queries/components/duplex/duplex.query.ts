@@ -5,22 +5,9 @@ query {
       id
     }
     containerLayout
-  
-    firstColumnHeadline
-    firstColumn{
-      json
-    }
-    secondColumnHeadline
-    secondColumn {
-      json
-    }
-    ctaText
-   
-    targetPage {
-      __typename
-      ... on Page {
-        slug
-      }
+    headline
+    bodyText {
+    json
     }
   }
 }

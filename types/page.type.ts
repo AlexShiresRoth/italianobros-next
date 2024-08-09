@@ -1,4 +1,3 @@
-import { EntryFields, EntrySys } from "contentful";
 import { UnknownComponent } from "./component";
 
 export type InputItem = {
@@ -48,6 +47,7 @@ export type ExtraSectionCollection = {
 
 export interface PossibleComponentType {
   __typename: string;
+  slug?: string;
   sys: {
     id: string;
   };
@@ -76,6 +76,13 @@ export type PageCollectionItem = {
   pageName: string;
   slug: string;
   seoMetadata: SEOMetadata;
+  heading: string;
+  subHeading: string;
+  image: {
+    url: string;
+    title: string;
+    description: string;
+  };
   topSectionCollection: {
     items: PossibleComponentType[];
   };

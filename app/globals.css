@@ -20,7 +20,7 @@ p {
 }
 
 a {
-  @apply hover:text-primary transition-colors dark:text-white;
+  @apply hover:text-primary transition-colors;
 }
 
 input {

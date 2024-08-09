@@ -2,6 +2,7 @@ import { fetchGraphQL } from "@/contentful/api";
 import { galleryQuery } from "@/contentful/gql-queries/components/gallery";
 import { GalleryResponseData } from "@/types";
 import { PossibleComponentType } from "@/types/page.type";
+import classNames from "classnames";
 import Image from "next/image";
 import Link from "next/link";
 import SectionContainer from "../containers/section-container";
@@ -25,9 +26,16 @@ export default async function Gallery(props: PossibleComponentType) {
   const gallery = await getGallery(props.sys.id);
 
   if (!gallery) return null;
+
+  const gridCols = gallery.imagesCollection.items.length % 3 === 0 ? 3 : 2;
   return (
     <SectionContainer bgColor='bg-primary/10'>
-      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
+      <div
+        className={classNames("grid grid-cols-1 gap-8", {
+          "md:grid-cols-2 lg:grid-cols-3": gridCols === 3,
+          "md:grid-cols-2": gridCols === 2,
+        })}
+      >
         {gallery.imagesCollection.items.length > 0 &&
           gallery.imagesCollection.items.map((image, index) => (
             <div
