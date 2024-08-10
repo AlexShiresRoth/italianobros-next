@@ -85,6 +85,7 @@ export default async function Page({
                 src={page.image.url}
                 alt={page.image.title}
                 fill
+                unoptimized
                 className='object-cover object-center w-full h-full'
               />
               <div className='absolute top-0 left-0 w-full h-full bg-black bg-opacity-20 z-0' />

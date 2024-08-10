@@ -20,7 +20,7 @@ export const heroQuery = (id: string) => `query {
           url(transform :{
             format: WEBP
             width: 1000
-            quality: 90
+            quality: 95
   })
         title
         description 

@@ -4,6 +4,7 @@ import FeaturedSection from "../featured-section/featured-section";
 import SignupBox from "../forms/sign-up/sign-up-box";
 import Gallery from "../gallery/gallery";
 import HeroBanner from "../hero/hero-banner";
+import InfoBlock from "../info-block/info-block";
 import ComponentWrapper from "../wrappers/component-wrapper";
 import CustomComponentStrategy from "./custom-component-strategy";
 
@@ -39,6 +40,9 @@ const ComponentRenderer = ({ itemsToRender, slug }: Props) => {
         }
         if (component.__typename === "ComponentDuplex") {
           return <DuplexComponent key={component.sys.id} {...component} />;
+        }
+        if (component.__typename === "ComponentInfoBlock") {
+          return <InfoBlock key={component.sys.id} {...component} />;
         }
         if (component.__typename === "CustomComponent") {
           return (

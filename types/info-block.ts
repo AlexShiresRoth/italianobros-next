@@ -1,8 +1,8 @@
-import { EntryFields, EntrySys } from 'contentful';
+import { EntryFields, EntrySys } from "contentful";
 
 export interface InfoBlockdata {
   sys: EntrySys;
-  __typename: 'ComponentInfoBlock';
+  __typename: "ComponentInfoBlock";
   headline: EntryFields.Symbol;
   subline: EntryFields.Symbol;
   blocksCollection: {
@@ -13,6 +13,7 @@ export interface InfoBlockdata {
         title: EntryFields.Symbol;
         description: EntryFields.Symbol;
       };
+      heading: EntryFields.Symbol;
       text: {
         json: EntryFields.RichText;
       };
