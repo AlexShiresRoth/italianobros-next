@@ -6,7 +6,7 @@ export const infoBlockQuery = (id: string) => `query {
     __typename
     headline
     subline
-        blocksCollection(limit: 3) {
+    blocksCollection(limit: 3) {
             items {
               sys {
                 id
@@ -16,6 +16,7 @@ export const infoBlockQuery = (id: string) => `query {
                 title
                 description
               }
+              heading
               text {
                 json
               }

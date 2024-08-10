@@ -17,7 +17,7 @@ export const pageQuery = (slug: string): string => `query {
         id
       }
       image {
-        url(transform: { width: 1500, height: 700, format: WEBP, quality: 85 })
+        url(transform: { width: 1500, height: 900, format: WEBP, quality: 95 })
         title
         description
       }
@@ -51,6 +51,11 @@ export const pageQuery = (slug: string): string => `query {
               id
             }
           }
+            ... on ComponentInfoBlock {
+              sys {
+                id
+              }
+            }
         }
       }
       pageContent {
@@ -79,6 +84,11 @@ export const pageQuery = (slug: string): string => `query {
               id
             }
           }
+              ... on ComponentInfoBlock {
+              sys {
+                id
+              }
+            }
         }
       }
     }

@@ -15,7 +15,7 @@ export const galleryQuery = (id: string): string => `query {
         }
         width
         height
-        url(transform: { width: 500, height: 300, format: WEBP, quality: 90 })
+        url(transform: { width: 1000, height: 1000, format: WEBP, quality: 95 })
         title
       }
     }

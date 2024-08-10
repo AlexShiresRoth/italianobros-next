@@ -14,10 +14,10 @@ export const featuredSectionQuery = (id: string) => `query {
     image {
       title
       url(transform : {
-        width:800,
-        height:600
+        width:1000
+        height:1000
         format:WEBP
-        quality:85
+        quality:95
       })
     }
   }
