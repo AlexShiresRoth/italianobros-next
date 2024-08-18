@@ -48,7 +48,11 @@ export default async function InstagramDisplay() {
 
   const feed = await getInstagramFeed(token);
 
-  if (!feed.length) return null;
+  const feedWithoutVideos = feed.filter(
+    (media) => media.media_type !== "VIDEO"
+  );
+
+  if (!feedWithoutVideos.length) return null;
 
   return (
     <SectionContainer bgColor='bg-primary/10'>
@@ -67,12 +71,12 @@ export default async function InstagramDisplay() {
         </a>
       </div>
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4'>
-        {feed.slice(0, 18).map((media) => (
+        {feedWithoutVideos.slice(0, 18).map((media) => (
           <div
             key={media.id}
             className='flex flex-col items-center justify-center w-full'
           >
-            <a href={media.permalink} target='_blank'>
+            <a href={media.permalink} target='_blank' className='w-full'>
               <div className='relative w-full h-96 col-span-1 overflow-hidden flex flex-1'>
                 <Image
                   src={media.media_url}
